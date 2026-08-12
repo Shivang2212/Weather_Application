@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Station</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Weather.css">
+<script defer src="Weather.js"></script>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">Live Readout</div>
+  <h1>Weather Station</h1>
+
+  <div class="search-row">
+    <div class="search-box">
+      <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="Search a city or area…" autocomplete="off">
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <button class="loc-btn" id="locBtn" title="Use current location">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/></svg>
+      Locate
+    </button>
+    <button class="unit-btn" id="unitBtn">°C</button>
+  </div>
+  <div class="status-line" id="statusLine">Search for a place, or use your current location.</div>
+
+  <div class="empty-state" id="emptyState">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+    <div>No readings yet — pick a location above</div>
+  </div>
+
+  <div class="hero" id="hero">
+    <div class="hero-top">
+      <div>
+        <div class="place-name" id="placeName">—</div>
+        <div class="place-meta" id="placeMeta">—</div>
+      </div>
+      <div class="updated-tag" id="updatedTag">—</div>
+    </div>
+
+    <div class="hero-main">
+      <div class="temp-big"><span class="num" id="tempVal">--</span><span class="deg" id="tempUnit">°C</span></div>
+      <div class="condition-block">
+        <svg class="weather-icon" id="weatherIcon" viewBox="0 0 64 64"></svg>
+        <div>
+          <div class="cond-text" id="condText">—</div>
+          <div class="cond-sub" id="condSub">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-label">Wind Flow <span id="windDirLabel">—</span></div>
+        <div class="card-visual"><svg class="compass" id="compassSvg" viewBox="0 0 76 76"></svg></div>
+        <div class="card-value" id="windVal">-- <span class="unit">km/h</span></div>
+        <div class="card-sub" id="windGust">gusts —</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Humidity</div>
+        <div class="card-visual"><svg width="70" height="70" viewBox="0 0 70 70" id="humiditySvg"></svg></div>
+        <div class="card-value" id="humidityVal">-- <span class="unit">%</span></div>
+        <div class="card-sub" id="humiditySub">relative humidity</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Air Quality <span class="aqi-pill" id="aqiPill">—</span></div>
+        <div class="card-visual"><svg width="120" height="60" viewBox="0 0 120 60" id="aqiSvg"></svg></div>
+        <div class="card-value" id="aqiVal">-- <span class="unit">US AQI</span></div>
+        <div class="card-sub" id="aqiSub">—</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Precipitation</div>
+        <div class="card-visual"><svg width="70" height="70" viewBox="0 0 70 70" id="rainSvg"></svg></div>
+        <div class="card-value" id="rainVal">-- <span class="unit">%</span></div>
+        <div class="card-sub" id="rainSub">chance today</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footnote">Data via Open‑Meteo — updates on each search or locate</div>
+</div>
+
+<!-- <script src="script.js"></script> -->
+</body>
+</html>
